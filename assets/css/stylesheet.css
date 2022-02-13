@@ -1,3 +1,4 @@
+/* initial title page css */
 .navBar {
     display: flex;
 }
@@ -28,7 +29,7 @@
     justify-content: center;
     align-items: center;
     background-color: #351c75;
-    border-radius: 5px;
+    border-radius: 10px;
     width:15%;
     height: 18%;
     
@@ -53,3 +54,23 @@
     font-size: 14pt;
     margin: 2rem 5rem;
 }
+/* end intital title page css */
+
+/* CSS for applicable answer buttons */
+.purpleAnswerBtn {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-indent: 20px;
+    background-color: #351c75;
+    border-radius: 10px;
+    width:25%;
+    height: 18%;
+    color: white;
+    font-size: 14pt;
+}
+
+.purpleAnswerBtn:hover {
+    background-color: #c36fe9;
+}
+/* end css for applicable answer buttons */
