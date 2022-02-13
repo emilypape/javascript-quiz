@@ -3,8 +3,9 @@
 }
 
 .navText {
-    color: #E4BFF5;
+    color: #c36fe9;
     font-size: 16pt;
+    font-weight: ;
 }
 
 .questionContainer {
@@ -34,15 +35,21 @@
 }
 
 .btnBox:hover {
-    background-color: #E4BFF5;
+    background-color: #c36fe9;
 }
 
 .purpleBtn {
     color: white;
-    font-size: 14pt;
+    font-size: 15pt;
 }
 
 .introHeader {
     font-weight: 900;
-    font-size: 20pt;
+    font-size: 30pt;
+    margin: 0;
+}
+
+.introStatement {
+    font-size: 14pt;
+    margin: 2rem 5rem;
 }
