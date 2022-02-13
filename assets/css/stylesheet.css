@@ -1,0 +1,48 @@
+.navBar {
+    display: flex;
+}
+
+.navText {
+    color: #E4BFF5;
+    font-size: 16pt;
+}
+
+.questionContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.titlePage {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 5rem 20rem;
+    
+}
+
+.btnBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #351c75;
+    border-radius: 5px;
+    width:15%;
+    height: 18%;
+    
+}
+
+.btnBox:hover {
+    background-color: #E4BFF5;
+}
+
+.purpleBtn {
+    color: white;
+    font-size: 14pt;
+}
+
+.introHeader {
+    font-weight: 900;
+    font-size: 20pt;
+}
