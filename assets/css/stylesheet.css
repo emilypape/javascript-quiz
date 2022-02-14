@@ -6,7 +6,8 @@
 .navText {
     color: #c36fe9;
     font-size: 16pt;
-    font-weight: ;
+    font-weight: 200;
+    padding: 30px;
 }
 
 .questionContainer {
@@ -61,16 +62,28 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    text-indent: 20px;
-    background-color: #351c75;
-    border-radius: 10px;
-    width:25%;
-    height: 18%;
-    color: white;
+    text-indent: 10px;
     font-size: 14pt;
+    font-weight: 100;
+    background-color: #351c75;
+    color: white;
+    border-radius: 5px;
+    width:35%;
+    height: 100%;
+    padding: 10px;
+    margin: 20px 5px -10px 0;
 }
 
 .purpleAnswerBtn:hover {
     background-color: #c36fe9;
 }
 /* end css for applicable answer buttons */
+
+.questionStyles {
+    display: flex;
+    flex-direction: column;
+    font-weight: 900;
+    font-size: 26pt;
+    padding: 35px;
+
+}
