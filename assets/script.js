@@ -3,14 +3,26 @@ var clearWelcomePgEl = document.querySelector('#startPage');
 var questionContainer = document.querySelector('#question-container');
 var bodyEl = document.querySelector('#bodyEL');
 var answerReactions = document.querySelector('#answer-validity');
+var highScoreEL = document.querySelector('#high-scores');
+
+function resetAnswer() {
+
+}
 
 function wrongAnswer() {
-    answerReactions.className = "wrongAnswerStyles";
+    answerReactions.className = "answerStyles";
     var wrongAnswers = document.createElement('div');
-    wrongAnswers.className = "wrongAnswerStylesDiv";
+    wrongAnswers.className = "answerStylesDiv";
     wrongAnswers.textContent = "Wrong!";
     answerReactions.appendChild(wrongAnswers);
-    
+}
+
+function rightAnswer() {
+    answerReactions.className = "answerStyles";
+    var rightAnswers = document.createElement('div');
+    rightAnswers.className = "answerStylesDiv";
+    rightAnswers.textContent = "Correct!";
+    answerReactions.appendChild(rightAnswers);
 }
 
 function startQuiz() {
@@ -53,12 +65,13 @@ function question1() {
     answerBox4.textContent = answerBoxObj.answer4;
     questionBox1.appendChild(answerBox4);
 
+    // check if right when user clicks answer
     answerBox1.addEventListener('click', wrongAnswer);
     answerBox2.addEventListener('click', wrongAnswer);
     answerBox4.addEventListener('click', wrongAnswer);
+    answerBox3.addEventListener('click', rightAnswer);
 
 
-    // check if right when user clicks answer
 
     //if right, call question2()
 

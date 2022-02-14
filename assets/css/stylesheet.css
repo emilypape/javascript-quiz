@@ -89,16 +89,17 @@
 }
 /* end question styling */
 
-.wrongAnswerStyles {
+.answerStyles {
     display: flex;
     margin: 0 400px 0 420px;
     border-top: solid 2px lightgrey;
 }
 
-.wrongAnswerStylesDiv {
+.answerStylesDiv {
     color: lightgrey;
     padding: 10px;
     font-style: italic;
     font-size: 16pt;
     font-weight: 500;
 }
+
