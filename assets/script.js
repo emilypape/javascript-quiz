@@ -36,7 +36,7 @@ function rightAnswer() {
         userScore =(userScore + 10)
         console.log(userScore);
     }
-    setTimeout(question2, 1000);
+    setTimeout(question2, 1000)
 }
 
 function startQuiz() {
@@ -88,7 +88,6 @@ function question1() {
     answerBox4.addEventListener('click', wrongAnswer);
     answerBox3.addEventListener('click', rightAnswer);
     
-    
     //if right, call question2()
     // if(document.getElementById('right-answer-1').clicked == true) {
     //     questionContainer.removeChild(questionBox1)
@@ -98,14 +97,50 @@ function question1() {
     // };
     
     //if wrong, show that it is wrong, let them answer again
+    
 }
 
 function question2 () {
+    //remove existing question information
     var questionBox1 = document.getElementById('#question-box-1');
     var rightAnswers = document.getElementById('#right-answer-footer');
+    $("#answer-validity").hide();
     questionContainer.removeChild(questionBox1);
     answerReactions.removeChild(rightAnswers);
     
+    //insert second question information
+    var questionBox2 = document.createElement('div');
+    questionBox2.className = "questionStyles";
+    questionBox2.id = "#question-box-2"
+    questionBox2.textContent = "How do you send something to localStorage?";
+    questionContainer.appendChild(questionBox2);
+
+    var answerBoxObj2 = {
+        answer1: '1. JSON.parse',
+        answer2: '2. getItem',
+        answer3: '3. localStorage.go',
+        answer4: '4. setItem'
+    }
+
+    var answerBoxQ2 = document.createElement('button');
+    answerBoxQ2.className = "purpleAnswerBtn";
+    answerBoxQ2.textContent = answerBoxObj2.answer1;
+    questionBox2.appendChild(answerBoxQ2);
+
+    var answerBoxQ2Q2 = document.createElement('button');
+    answerBoxQ2Q2.className = "purpleAnswerBtn";
+    answerBoxQ2Q2.textContent = answerBoxObj2.answer2;
+    questionBox2.appendChild(answerBoxQ2Q2);
+
+    var answerBoxQ2Q3 = document.createElement('button');
+    answerBoxQ2Q3.className = "purpleAnswerBtn";
+    answerBoxQ2Q3.textContent = answerBoxObj2.answer3;
+    questionBox2.appendChild(answerBoxQ2Q3);
+
+    var answerBoxQ2Q4 = document.createElement('button');
+    answerBoxQ2Q4.className = "purpleAnswerBtn";
+    answerBoxQ2Q4.textContent = answerBoxObj2.answer4;
+    questionBox2.appendChild(answerBoxQ2Q4);
 }
 
 
