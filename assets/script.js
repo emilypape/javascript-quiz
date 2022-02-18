@@ -8,22 +8,23 @@ var userScore = 0;
 
 function wrongAnswer() {
     //create a pop up when the answer is incorrect 
+    $("#answer-validity").show();
     answerReactions.className = "answerStyles";
     var wrongAnswers = document.createElement('div');
+    wrongAnswers.id = "wrong-answer-footer";
     wrongAnswers.className = "answerStylesDiv";
     wrongAnswers.textContent = "Wrong!";
     answerReactions.appendChild(wrongAnswers);
 
     //lose points when your answer is wrong
-    if (wrongAnswers = true) {
         userScore = (userScore - 5);
         console.log(userScore);
-    };
-
+   
 }
 
 function rightAnswer() {
     //creat a pop up when your answer is correct
+    $("#answer-validity").show();
     answerReactions.className = "answerStyles";
     var rightAnswers = document.createElement('div');
     rightAnswers.id = "#right-answer-footer";
@@ -32,10 +33,9 @@ function rightAnswer() {
     answerReactions.appendChild(rightAnswers);
 
     //recieve points for the correct answer
-    if (rightAnswer = true) {
         userScore =(userScore + 10)
         console.log(userScore);
-    }
+    
     setTimeout(question2, 1000)
 }
 
@@ -108,6 +108,7 @@ function question2 () {
     questionContainer.removeChild(questionBox1);
     answerReactions.removeChild(rightAnswers);
     
+    
     //insert second question information
     var questionBox2 = document.createElement('div');
     questionBox2.className = "questionStyles";
@@ -141,6 +142,15 @@ function question2 () {
     answerBoxQ2Q4.className = "purpleAnswerBtn";
     answerBoxQ2Q4.textContent = answerBoxObj2.answer4;
     questionBox2.appendChild(answerBoxQ2Q4);
+
+    // add event listeners for question2
+
+    answerBoxQ2.addEventListener('click', wrongAnswer);
+    answerBoxQ2Q2.addEventListener('click', wrongAnswer);
+    answerBoxQ2Q3.addEventListener('click', wrongAnswer);
+    //answerBoxQ2Q4.addEventListener('click', rightAnswer);
+
+
 }
 
 
