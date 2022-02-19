@@ -13,6 +13,7 @@
 .questionContainer {
     display: flex;
     justify-content: center;
+    flex-direction: column;
 }
 
 .titlePage {
@@ -68,8 +69,8 @@
     background-color: #351c75;
     color: white;
     border-radius: 5px;
-    width:35%;
-    height: 100%;
+    width: 65%;
+    height: 25%;
     padding: 10px;
     margin: 20px 5px -10px 0;
 }
@@ -91,6 +92,7 @@
 
 .answerStyles {
     display: flex;
+    flex-direction: column;
     margin: 0 400px 0 420px;
     border-top: solid 2px lightgrey;
 }
@@ -103,3 +105,6 @@
     font-weight: 500;
 }
 
+.hidden {
+    display: none;
+}

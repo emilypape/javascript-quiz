@@ -13,7 +13,7 @@
     </h1>
 </header>
 <body id="bodyEL" >
-    <div class="questionContainer" id="question-container">
+    <div class="titleScreen" id="title-screen">
         <section class="titlePage" id="startPage">
             <h1 class="introHeader">Coding Quiz Challenge</h1>
             <p class="introStatement">
@@ -24,8 +24,25 @@
             </div>
         </section>
     </div>
-    <footer id="answer-validity">
-        
+    <div class="questionContainer hidden" id="question-container">
+        <div class="questionStyles" id="question-prompt-container">
+            placeholder question
+        </div>
+        <div>
+            <button class="purpleAnswerBtn" id="answer-button-container1"></button>
+            <button class="purpleAnswerBtn" id="answer-button-container2"></button>
+            <button class="purpleAnswerBtn" id="answer-button-container3"></button>
+            <button class="purpleAnswerBtn" id="answer-button-container4"></button>
+        </div>
+    </div>
+    <div class="userInfoInput" id="user-info-input">
+
+    </div>
+    <div class="highScoreList" id="high-score-list">
+
+    </div>
+    <footer class="answerStyles answerStylesDiv hidden" id="answer-validity">
+        Wrong! Please guess again!
     </footer>
     
 </body>
