@@ -141,12 +141,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
 }
 
 .scoresList {
     background-color: #c36fe9;
     font-size: 16pt;
     font-weight: 100;
+    text-align: left;
 }
 
 .scoreListTitle {
