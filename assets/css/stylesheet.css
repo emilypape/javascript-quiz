@@ -12,8 +12,8 @@
 
 .questionContainer {
     display: flex;
-    justify-content: center;
     flex-direction: column;
+    align-items: center;
 }
 
 .titlePage {
@@ -78,6 +78,7 @@
 .purpleAnswerBtn:hover {
     background-color: #c36fe9;
 }
+
 /* end css for applicable answer buttons */
 
 /* standard question styling */
@@ -86,15 +87,20 @@
     flex-direction: column;
     font-weight: 900;
     font-size: 26pt;
-    padding: 35px;
+    margin: 0 400px;
 }
 /* end question styling */
 
 /* answer styles */
+
+.buttonBox {
+    width: 40%;
+}
+
 .answerStyles {
     display: flex;
     flex-direction: column;
-    margin: 0 400px 0 420px;
+    margin: 25px 400px 0 420px;
     border-top: solid 2px lightgrey;
 }
 
@@ -128,9 +134,34 @@
     background-color: #351c75;
     border-radius: 4px;
 }
+/* end initials and score items */
+
+/* start score list section */
+.highScoreList {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.scoresList {
+    background-color: #c36fe9;
+    font-size: 16pt;
+}
+
+.scoreListTitle {
+    font-size: 20pt;
+}
+
+.scoreItems {
+    text-decoration: none;
+}
 
 .purpleSubmitBtn:hover {
     background-color: #c36fe9;
+}
+
+.restartBtnBox {
+    text-align: center;
 }
 
 /* utility class */

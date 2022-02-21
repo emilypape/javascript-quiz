@@ -12,7 +12,7 @@
         View high scores
     </h1>
 </header>
-<body id="bodyEL" >
+<body class="plzHelp" id="bodyEL" >
     <div class="titleScreen" id="title-screen">
         <section class="titlePage" id="startPage">
             <h1 class="introHeader">Coding Quiz Challenge</h1>
@@ -28,11 +28,13 @@
         <div class="questionStyles" id="question-prompt-container">
             placeholder question
         </div>
-        <div>
-            <button class="purpleAnswerBtn" id="answer-button-container1"></button>
-            <button class="purpleAnswerBtn" id="answer-button-container2"></button>
-            <button class="purpleAnswerBtn" id="answer-button-container3"></button>
-            <button class="purpleAnswerBtn" id="answer-button-container4"></button>
+        <div class="buttonBox">
+            <div>
+                <button class="purpleAnswerBtn" id="answer-button-container1"></button>
+                <button class="purpleAnswerBtn" id="answer-button-container2"></button>
+                <button class="purpleAnswerBtn" id="answer-button-container3"></button>
+                <button class="purpleAnswerBtn" id="answer-button-container4"></button>
+            </div>
         </div>
     </div>
     <div class="userInfoInput hidden" id="user-info-input">
@@ -51,12 +53,14 @@
         </div>
     </div>
     <div class="highScoreList hidden" id="high-score-list">
-        <div>
+        <div class="scoreListTitle">
             High Scores!
             <ul class="scoresList" id="scores-list">
 
             </ul>
-            <button class="purpleSubmitBtn" id="replay-button">Restart Quiz</button>
+            <div class="restartBtnBox">
+                <button class="purpleSubmitBtn" id="replay-button">Restart Quiz</button>
+            </div>
         </div>
     </div>
     <footer class="answerStyles answerStylesDiv hidden" id="answer-validity">

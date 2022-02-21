@@ -175,7 +175,7 @@ function highScorePage() {
     var scoresArray = Object.entries(playerStatsRetrieval);
     for (var i = 0; i < scoresArray.length; i++) {
         scoreBox = document.createElement('li');
-        scoreBox.classList.add('scoreListItems');
+        scoreBox.className = 'scoreItems';
         scoreBox.textContent = scoresArray[i][0] + ': ' + scoresArray[i][1];
         scoresList.appendChild(scoreBox);
     }
