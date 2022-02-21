@@ -90,6 +90,7 @@
 }
 /* end question styling */
 
+/* answer styles */
 .answerStyles {
     display: flex;
     flex-direction: column;
@@ -104,7 +105,35 @@
     font-size: 16pt;
     font-weight: 500;
 }
+/* end answer styles */
 
+/*intitials and scores styles */
+.userInfoInput {
+    display: flex;
+    justify-content: center;
+    padding: 55px;
+}
+
+.allDoneText {
+    font-size: 30pt;
+    font-weight: 900;
+}
+
+.enterInitials {
+    font-size: 14pt;
+}
+
+.purpleSubmitBtn {
+    color: white;
+    background-color: #351c75;
+    border-radius: 4px;
+}
+
+.purpleSubmitBtn:hover {
+    background-color: #c36fe9;
+}
+
+/* utility class */
 .hidden {
     display: none;
 }

@@ -7,8 +7,8 @@
     <title>E's JS Quizlet</title>
     <link rel="stylesheet" href="./assets/css/stylesheet.css"> 
 </head>
-<header class="navBar" id="high-scores">
-    <h1 class="navText">
+<header class="navBar" >
+    <h1 class="navText" id="high-scores">
         View high scores
     </h1>
 </header>
@@ -35,11 +35,29 @@
             <button class="purpleAnswerBtn" id="answer-button-container4"></button>
         </div>
     </div>
-    <div class="userInfoInput" id="user-info-input">
-
+    <div class="userInfoInput hidden" id="user-info-input">
+        <div id="input-container">
+            <div class="allDoneText">
+                All Done!
+            </div>
+            <div class="quiz-score" id="quiz-score-display">
+                
+            </div>
+            <div class="enterInitials">
+                Enter Initials:
+                <input type="text" name="Enter Initials" id="input-text-area">
+                <button class="purpleSubmitBtn" id="submit-btn">Submit</button>
+            </div>
+        </div>
     </div>
-    <div class="highScoreList" id="high-score-list">
+    <div class="highScoreList hidden" id="high-score-list">
+        <div>
+            High Scores!
+            <ul class="scoresList" id="scores-list">
 
+            </ul>
+            <button class="purpleSubmitBtn" id="replay-button">Restart Quiz</button>
+        </div>
     </div>
     <footer class="answerStyles answerStylesDiv hidden" id="answer-validity">
         Wrong! Please guess again!

@@ -1,7 +1,14 @@
+var skipToHighScores = document.querySelector('#high-scores')
 var titleScreen = document.querySelector('#title-screen');
 var titlePage = document.querySelector('#startPage');
 var wrongAnswerReaction = document.querySelector('#answer-validity');
 var questionContainer = document.querySelector('#question-container');
+var enterInitialsPage = document.querySelector('#user-info-input');
+var enterInitialsInput = document.querySelector('#input-text-area')
+var submitBtn = document.querySelector('#submit-btn');
+var highScores = document.querySelector('#high-score-list');
+var scoresList = document.querySelector('#scores-list');
+var replay = document.querySelector('#replay-button');
 var questionPromptContainer = document.querySelector('#question-prompt-container');
 var answerButtonContainerOne = document.querySelector('#answer-button-container1');
 var answerButtonContainerTwo = document.querySelector('#answer-button-container2');
@@ -43,6 +50,14 @@ var questions = [
 var count = 0
 var score = 0
 
+function navBarScoreButton() {
+    enterInitialsPage.classList.add('hidden');
+    titleScreen.classList.add('hidden');
+    questionContainer.classList.add('hidden');
+
+    highScorePage();
+}
+
 function shuffleAnswers(answers) {
     // function that randomly generates a positive or negative number
     function randomNumber(){
@@ -54,8 +69,34 @@ function shuffleAnswers(answers) {
     return shuffledAnswers;
 }
 
+function checkAnswer() {
+    //check which answer is right 
+    var currentQuestion = questions[count];
+    var selectedAnswer = this.textContent
+    //check which answers are wrong
+    if (selectedAnswer === currentQuestion.correctAnswers) {
+        //add hidden to wrong
+        wrongAnswerReaction.classList.add('hidden');
+        //add points for correctness
+        score = (score + 10);
+        //fire next question function
+        nextQuestion();
+    } else {
+        //display wrong
+        wrongAnswerReaction.classList.remove('hidden');
+        //lose points 
+        score = (score - 5);
+    }
+    //right answers = 10pts
+    //wrong answers = -5pts
+    //right answers move to the next question
+    //wrong answers guess again
+    console.log(score)
+}
+
 function startGame () {
     //change title page display to none (add hidden class to title page)
+    highScores.classList.add('hidden');
     titleScreen.classList.add('hidden');
     //remove hidden from question container
     questionContainer.classList.remove('hidden');
@@ -74,31 +115,76 @@ function startGame () {
 
 }
 
-function checkAnswer() {
-    //check which answer is right 
-    var currentQuestion = questions[count];
-    var selectedAnswer = this.textContent
-    //check which answers are wrong
-    if(selectedAnswer === question.correctAnswers){
-        //add hidden to wrong
+function nextQuestion() {
+    count++;
 
-        score = (score + 10);
-        //add points for correctness
-        //move on to next question
-        //fire next question function
+    
+    if (count >= questions.length) {
+        // run end game
+        endGame();
+    } else {
+        var questionsObject = questions[count];
+        var answersArray = [...questionsObject.wrongAnswers, questionsObject.correctAnswers]
+        var shuffledAnswerArray =shuffleAnswers(answersArray);
+        //call shuffleAnswers
+        questionPromptContainer.textContent = questionsObject.prompt
+        answerButtonContainerOne.textContent = shuffledAnswerArray[0]
+        answerButtonContainerTwo.textContent = shuffledAnswerArray[1]
+        answerButtonContainerThree.textContent = shuffledAnswerArray[2]
+        answerButtonContainerFour.textContent = shuffledAnswerArray[3]
+        //display new object question from question array
     }
-    else{
-        //lose points 
-        //display wrong
-    }
-    //right answers = 10pts
-    //wrong answers = -5pts
-    //right answers move to the next question
-    //wrong answers guess again
 }
 
+function endGame() {
+    questionContainer.classList.add('hidden');
+    enterInitialsPage.classList.remove('hidden');
+    
+    function initialsRetrieval() {
+        //pull all current scores from local storage 'initials' key
+        var storedInitials = localStorage.getItem('initials')
+        if (storedInitials === null) {
+            storedInitials = {};
+        } else {
+            storedInitials = JSON.parse(storedInitials);
+        }
+        // turn into an array/object
+
+        //get initials from current plyaer
+        var inputInitials = document.querySelector('#input-text-area').value;
+        //add new initials to list of old initials
+        storedInitials[inputInitials] = score;
+
+        var initialsJSON = JSON.stringify(storedInitials)
+        //set the initials and new initials in local storage in JSON format
+        localStorage.setItem('initials', initialsJSON);
+
+        highScorePage()
+    }
+
+    submitBtn.addEventListener('click', initialsRetrieval);
+}
+
+function highScorePage() {
+    enterInitialsPage.classList.add('hidden');
+    highScores.classList.remove('hidden');
+
+    var playerStatsRetrieval = localStorage.getItem('initials');
+    playerStatsRetrieval = JSON.parse(playerStatsRetrieval);
+
+    var scoresArray = Object.entries(playerStatsRetrieval);
+    for (var i = 0; i < scoresArray.length; i++) {
+        scoreBox = document.createElement('li');
+        scoreBox.classList.add('scoreListItems');
+        scoreBox.textContent = scoresArray[i][0] + ': ' + scoresArray[i][1];
+        scoresList.appendChild(scoreBox);
+    }
+}
+
+skipToHighScores.addEventListener('click', navBarScoreButton);
 titleScreen.addEventListener('click', startGame);
 answerButtonContainerOne.addEventListener('click', checkAnswer);
 answerButtonContainerTwo.addEventListener('click', checkAnswer);
 answerButtonContainerThree.addEventListener('click', checkAnswer);
 answerButtonContainerFour.addEventListener('click', checkAnswer);
+replay.addEventListener('click', startGame);
