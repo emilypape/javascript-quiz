@@ -66,6 +66,7 @@ function navBarScoreButton() {
     enterInitialsPage.classList.add('hidden');
     titleScreen.classList.add('hidden');
     questionContainer.classList.add('hidden');
+    wrongAnswerReaction.classList.add('hidden');
 
     highScorePage();
 }
@@ -111,6 +112,7 @@ function startGame () {
     //change title page display to none (add hidden class to title page)
     highScores.classList.add('hidden');
     titleScreen.classList.add('hidden');
+    wrongAnswerReaction.classList.add('hidden');
     seconds = 60
     //remove hidden from question container
     questionContainer.classList.remove('hidden');
