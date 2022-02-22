@@ -14,6 +14,7 @@ var answerButtonContainerOne = document.querySelector('#answer-button-container1
 var answerButtonContainerTwo = document.querySelector('#answer-button-container2');
 var answerButtonContainerThree = document.querySelector('#answer-button-container3');
 var answerButtonContainerFour = document.querySelector('#answer-button-container4');
+var timerContainer = document.querySelector('#timer-container');
 
 var questions = [
     {
@@ -49,6 +50,17 @@ var questions = [
 
 var count = 0
 var score = 0
+var intervalId
+var seconds =  60
+
+function timer() {
+    if (seconds <= 0) {
+        endGame()
+    } else {
+        timerContainer.textContent = seconds;
+        seconds = seconds - 1
+    }
+}
 
 function navBarScoreButton() {
     enterInitialsPage.classList.add('hidden');
@@ -86,12 +98,13 @@ function checkAnswer() {
         wrongAnswerReaction.classList.remove('hidden');
         //lose points 
         score = (score - 5);
+        seconds = (seconds - 5);
     }
     //right answers = 10pts
     //wrong answers = -5pts
     //right answers move to the next question
     //wrong answers guess again
-    console.log(score)
+    
 }
 
 function startGame () {
@@ -113,6 +126,7 @@ function startGame () {
     answerButtonContainerThree.textContent = shuffledAnswerArray[2]
     answerButtonContainerFour.textContent = shuffledAnswerArray[3]
 
+    intervalId = setInterval(timer, 1000);    
 }
 
 function nextQuestion() {
@@ -137,6 +151,7 @@ function nextQuestion() {
 }
 
 function endGame() {
+    clearInterval(intervalId)
     questionContainer.classList.add('hidden');
     enterInitialsPage.classList.remove('hidden');
     
@@ -169,6 +184,10 @@ function highScorePage() {
     enterInitialsPage.classList.add('hidden');
     highScores.classList.remove('hidden');
 
+    if (intervalId) {
+        clearInterval(intervalId)
+    };
+
     var playerStatsRetrieval = localStorage.getItem('initials');
     playerStatsRetrieval = JSON.parse(playerStatsRetrieval);
 
@@ -188,3 +207,6 @@ answerButtonContainerTwo.addEventListener('click', checkAnswer);
 answerButtonContainerThree.addEventListener('click', checkAnswer);
 answerButtonContainerFour.addEventListener('click', checkAnswer);
 replay.addEventListener('click', startGame);
+
+//view highscores clears interval if interval exists
+// wrongAnswers takes away from seconds
