@@ -1,6 +1,8 @@
 /* initial title page css */
 .navBar {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .navText {
@@ -168,6 +170,11 @@
     text-align: center;
 }
 
+/* start timer box styles */
+.timerContainer {
+    padding: 35px;
+    font-size: 16pt;
+}
 /* utility class */
 .hidden {
     display: none;

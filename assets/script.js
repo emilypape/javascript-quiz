@@ -111,6 +111,7 @@ function startGame () {
     //change title page display to none (add hidden class to title page)
     highScores.classList.add('hidden');
     titleScreen.classList.add('hidden');
+    seconds = 60
     //remove hidden from question container
     questionContainer.classList.remove('hidden');
     //grab first question at a time using count to index the array
